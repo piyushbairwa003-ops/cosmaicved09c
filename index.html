@@ -54,7 +54,10 @@ nav{position:sticky;top:0;z-index:999;background:rgba(253,248,240,.97);backdrop-
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(254,243,199,.15);border:1px solid rgba(232,197,71,.40);border-radius:999px;padding:7px 20px;font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.20em;text-transform:uppercase;margin-bottom:22px}
 .bdot{width:7px;height:7px;border-radius:50%;background:var(--g3);animation:bdp 1.6s ease-in-out infinite;flex-shrink:0}
 @keyframes bdp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.hero-h1{font-family:"Playfair Display",serif;font-size:clamp(38px,6vw,80px);font-weight:900;line-height:1.06;color:#fff;margin-bottom:16px;text-shadow:0 2px 24px rgba(0,0,0,.30)}
+.hero-h1-wrap{position:relative;display:inline-block;margin-bottom:16px}
+.hero-h1-wrap::before{content:"";position:absolute;inset:-14px -10px;background:radial-gradient(ellipse at center,rgba(232,197,71,.38) 0%,rgba(232,197,71,.16) 45%,transparent 75%);filter:blur(14px);z-index:0;border-radius:40px}
+.hero-h1{position:relative;z-index:1;font-family:"Playfair Display",serif;font-size:clamp(38px,6vw,80px);font-weight:900;line-height:1.06;color:#fff;margin-bottom:0;text-shadow:0 2px 28px rgba(0,0,0,.45),0 0 30px rgba(232,197,71,.35)}
+@media(max-width:640px){.hero-h1-wrap::before{inset:-10px -6px;filter:blur(10px)}}
 .hero-h1 .ap{color:var(--gl2)}
 .hero-h1 .ag{background:linear-gradient(90deg,var(--g3),#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(15px,2vw,19px);color:rgba(255,255,255,.68);max-width:640px;line-height:1.75;margin-bottom:32px}
@@ -71,15 +74,22 @@ nav{position:sticky;top:0;z-index:999;background:rgba(253,248,240,.97);backdrop-
 .hero-scroll span{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.40);border-bottom:2px solid rgba(255,255,255,.40);transform:rotate(45deg)}
 @keyframes scrollb{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
 
+/* OUR EXPERTISE HEADING */
+.exp-heading-wrap{text-align:center;padding:0 20px;margin-bottom:38px}
+.exp-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,197,71,.12);border:1px solid rgba(232,197,71,.35);border-radius:999px;padding:6px 18px;font-size:11px;font-weight:700;color:var(--g3);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+.exp-main-heading{font-family:"Playfair Display",serif;font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.1;color:#fff;letter-spacing:.01em}
+.exp-main-heading .gold{background:linear-gradient(90deg,var(--g3),#fbbf24,var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.exp-sub{font-size:13.5px;color:rgba(255,255,255,.45);margin-top:10px;max-width:480px;margin-left:auto;margin-right:auto}
+
 /* EXPERTISE STRIP (below hero) */
-.expertise-strip{background:var(--ink);padding:40px 48px 44px;position:relative;border-bottom:1px solid rgba(232,197,71,.15)}
+.expertise-strip{background:var(--ink);padding:52px 48px 44px;position:relative;border-bottom:1px solid rgba(232,197,71,.15)}
 .exp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1200px;margin:0 auto}
 .exp-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:8px 6px}
 .exp-ico{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--g3),var(--g1));display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 18px rgba(232,197,71,.30);flex-shrink:0}
-.exp-title{font-size:13px;font-weight:700;color:var(--g3);letter-spacing:.02em;line-height:1.35}
+.exp-title{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1.5;background:linear-gradient(120deg,var(--g3),var(--gl2));padding:3px 10px;border-radius:7px;display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;box-shadow:0 2px 8px rgba(232,197,71,.25)}
 .exp-desc{font-size:11.5px;color:rgba(255,255,255,.40);line-height:1.6}
 @media(max-width:1024px){.exp-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.exp-grid{grid-template-columns:1fr 1fr}.expertise-strip{padding:32px 20px 36px}}
+@media(max-width:640px){.exp-grid{grid-template-columns:1fr 1fr}.expertise-strip{padding:40px 20px 36px}.exp-title{font-size:12.5px;padding:3px 9px}.exp-main-heading{font-size:clamp(26px,7vw,36px)}}
 
 /* MARQUEE */
 .mq{background:var(--p1);padding:14px 0;overflow:hidden}
@@ -434,7 +444,7 @@ footer{background:#0e0818;border-top:1px solid rgba(255,255,255,.07);padding:56p
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge"><div class="bdot"></div>25+ Years of Trusted Practice &nbsp;·&nbsp; Authentic Vedic Lineage</div>
-    <h1 class="hero-h1">Cosmic <span class="ap">Ved</span> <span class="ag">Astrology</span></h1>
+    <div class="hero-h1-wrap"><h1 class="hero-h1">Cosmic <span class="ap">Ved</span> <span class="ag">Astrology</span></h1></div>
     <p class="hero-sub">Discreet, results-driven Vedic counsel for <strong>matters of the heart, the mind, and your livelihood.</strong> From mending love and easing anxiety to clearing the path for business — guidance rooted in <strong>genuine cosmic science, not guesswork.</strong></p>
     <a href="https://wa.me/917698593263" target="_blank" rel="noopener" class="hero-wa-btn">
       <svg style="width:22px;height:22px;flex-shrink:0" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -447,6 +457,11 @@ footer{background:#0e0818;border-top:1px solid rgba(255,255,255,.07);padding:56p
 
 <!-- OUR EXPERTISE (services below hero) -->
 <div class="expertise-strip">
+  <div class="exp-heading-wrap">
+    <div class="exp-eyebrow"><div class="bdot"></div>What We Do Best</div>
+    <h2 class="exp-main-heading">Our <span class="gold">Expertise</span></h2>
+    <p class="exp-sub">Five specialised areas of Vedic guidance, each handled with precision and care</p>
+  </div>
   <div class="exp-grid">
     <div class="exp-item">
       <div class="exp-ico">❤️</div>
